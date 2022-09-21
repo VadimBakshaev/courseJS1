@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+  <script>
+    "use strict";
+
+    const a = +prompt("Введите значение переменной 'a'");
+    const b = +prompt("Введите значение переменной 'b'");
+    const operation = prompt("Какую операцию нужно выполнить? Это '+','-','*' или '/'");
+
+    console.log("Результат: " + mathOperation(a, b, operation));
+
+    /**
+     * Функция выполняет простые арифметические действия, в зависимости от 
+     * третьего параметра передаваемого функции
+     * @param {number} arg1 - первое число
+     * @param {number} arg2 - второе число
+     * @param {simbol} operation - символ обозначающий выполняемую операцию
+     * @return {number} - результат операции
+     */
+    function mathOperation(arg1, arg2, operation) {
+      if (operation === "+") {
+        return addition(arg1, arg2);
+      } else if (operation === "-") {
+        return subtraction(arg1, arg2);
+      } else if (operation === "*") {
+        return multiplication(arg1, arg2);
+      } else if (operation === "/") {
+        return division(arg1, arg2);
+      } else return NaN;
+    }
+
+    /** 
+     * Функция сложения
+     * @param {number} a - первое слагаемое
+     * @param {number} b - второе слагаемое
+     * @return {number} - результат сложение
+    */
+    function addition(a, b) {
+      return a + b;
+    }
+
+    /**
+     * Функция вычитания, вычитает всегда из большего меньшее
+     * @param {number} a - первый операнд
+     * @param {number} b - второй операнд
+     * @return {number} - результат вычитания
+     */
+    function subtraction(a, b) {
+      if (a > b) {
+        return a - b;
+      } else {
+        return b - a;
+      }
+    }
+
+    /**
+     * Функция умножения
+     * @param {number} a - первый множитель
+     * @param {number} b - второй множитель
+     * @return {number} - результат умножения
+     */
+    function multiplication(a, b) {
+      return a * b;
+    }
+
+    /**
+     * Функция деление
+     * @param {number} a - делимое число
+     * @param {number} b - делитель
+     * @return {number} - результат деления
+     */
+    function division(a, b) {
+      return a / b;
+    }
+
+
+  </script>
+</body>
+
+</html>
